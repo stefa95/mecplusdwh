@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "show_user" %>
+
+<h1>Utenti</h1>
+<div class="table">
+    
+<div class="row header blue">
+  <div class="cell">
+    Nome
+  </div>
+  <div class="cell">
+    Cognome
+  </div>
+  <div class="cell">
+    Nome Utente
+  </div>
+<div class="cell">
+  Ruolo
+</div>
+</div>
+
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+  <div class="row">
+    <div class="cell" data-title="Nome"><%= user.name %></div>
+    <div class="cell" data-title="Cognome"><%= user.surname %></div>
+    <div class="cell" data-title="Nome Utente"><%= user.username %></div>
+    <div class="cell" data-title="Ruolo"><%= user.role.name %></div>
+  </div>
+  <% end %>
+</div>
+</div>
+
+<%= link_to "Nuovo Utente", new_user_path %>

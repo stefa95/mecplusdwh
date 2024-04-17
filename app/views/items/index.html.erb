@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Items</h1>
+
+<div id="items">
+<%= render items_path.items_list_main %>
+
+
+<%= link_to 'Filtra', tagged_items_path, remote: true, id: 'tagged-items' %>
+<div id="elementi-filtrati"></div>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('#tagged-items').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+          $('#elementi-filtrati').html(data);
+        }
+      });
+    });
+  });
+</script>
+
+<%= link_to "Nuovo Materiale", new_item_path %>

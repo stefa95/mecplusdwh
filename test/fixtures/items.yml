@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo: MyString
+  materiale: MyString
+  diametro: 9.99
+  lunghezza: 9.99
+  larghezza: 9.99
+  spessore: 9.99
+  descrizione: MyString
+  stato: 1
+  desc_stato: MyString
+  created_by_user: MyString
+  created_by_time: 2024-03-12 14:27:40
+  deleted_by_user: MyString
+  deleted_by_time: 2024-03-12 14:27:40
+  img_path: MyString
+  from_commessa: MyString
+  from_disegno: MyString
+
+two:
+  tipo: MyString
+  materiale: MyString
+  diametro: 9.99
+  lunghezza: 9.99
+  larghezza: 9.99
+  spessore: 9.99
+  descrizione: MyString
+  stato: 1
+  desc_stato: MyString
+  created_by_user: MyString
+  created_by_time: 2024-03-12 14:27:40
+  deleted_by_user: MyString
+  deleted_by_time: 2024-03-12 14:27:40
+  img_path: MyString
+  from_commessa: MyString
+  from_disegno: MyString

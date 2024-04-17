@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @role %>
+
+<div>
+<p>
+  <strong>Assosciated users:</strong>
+  <%= @assosciated_users %>
+</p>
+  <%= link_to "Edit this role", edit_role_path(@role) %> |
+  <%= link_to "Back to roles", roles_path %>
+
+  <%= button_to "Destroy this role", @role, method: :delete %>
+</div>

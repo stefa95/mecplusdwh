@@ -1,0 +1,103 @@
+<h1>Nuovo Materiale</h1>
+
+
+
+<%= form_with(model: @item) do |form| %>
+  <% if @item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% @item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :tipo, style: "display: block" %>
+    <%= form.select :tipo, ["PIATTO", "TONDO", 
+    "TUBO TONDO","TUBO RETTANGOLARE","TUBO QUADRO",
+     "TRAVE", 
+     "PROFILATI", "ALTRO"], {}, id: "tipo-select" %>
+  </div>
+
+  <div>
+    <%= form.label :materiale, style: "display: block" %>
+    <%= form.text_field :materiale, id: "materiale-text-field" %>
+  </div>
+
+  <div>
+    <%= form.label :diametro, style: "display: block" %>
+    <%= form.text_field :diametro %>
+  </div>
+
+  <div>
+    <%= form.label :lunghezza, style: "display: block" %>
+    <%= form.text_field :lunghezza %>
+  </div>
+
+  <div>
+    <%= form.label :larghezza, style: "display: block" %>
+    <%= form.text_field :larghezza %>
+  </div>
+
+  <div>
+    <%= form.label :spessore, style: "display: block" %>
+    <%= form.text_field :spessore %>
+  </div>
+
+  <div>
+    <%= form.label :descrizione, style: "display: block" %>
+    <%= form.text_field :descrizione %>
+  </div>
+
+
+  <div>
+    <%= form.label :Note, style: "display: block" %>
+    <%= form.text_field :desc_stato %>
+  </div>
+
+
+  <div>
+    <%= form.label :Proveniente_Da_Commessa, style: "display: block" %>
+    <%= form.text_field :from_commessa %>
+  </div>
+
+  <div>
+    <%= form.label :Proveniente_Da_Disegno, style: "display: block" %>
+    <%= form.text_field :from_disegno %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+  <% end %>
+
+
+<script>
+$( document ).ready(function() {
+   alert("ready!");
+});
+
+  document.ready(function() {
+    document.getElementById('tipo-select').change(function() {
+      var selectedValue = $(this).val();
+      alert(selectedValue);
+  if (selectedValue === 'PIATTO' || selectedValue === 'TONDO') {
+        $('#materiale-text-field').val('').prop('disabled', true);
+      } else {
+        $('#materiale-text-field').prop('disabled', false);
+      }
+    });
+  });
+</script>
+
+
+<br>
+
+<div>
+  <%= link_to "Back to items", items_path %>
+</div>
