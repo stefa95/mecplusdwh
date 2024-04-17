@@ -17480,3 +17480,373 @@ Did you mean?  items/item
                layouts/action_text/contents/content):
   
 app/controllers/items_controller.rb:32:in `list'
+Started GET "/" for 127.0.0.1 at 2024-04-17 14:50:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 4568)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-04-17 14:50:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 625)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4058)
+  Rendered layout layouts/application.html.erb (Duration: 106.5ms | Allocations: 25883)
+Completed 200 OK in 130ms (Views: 113.3ms | ActiveRecord: 3.2ms | Allocations: 40155)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-17 14:58:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 4568)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-04-17 14:58:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 625)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 4058)
+  Rendered layout layouts/application.html.erb (Duration: 107.4ms | Allocations: 24148)
+Completed 200 OK in 126ms (Views: 112.7ms | ActiveRecord: 2.1ms | Allocations: 38434)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-04-17 14:58:56 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"s", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["username", "s"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:11:in `assign_role'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11:in `assign_role'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-04-17 12:58:56.372470"], ["sign_in_count", 36], ["current_sign_in_at", "2024-04-17 12:58:56.342391"], ["last_sign_in_at", "2024-04-17 12:34:10.246818"], ["id", 6]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 235ms (ActiveRecord: 5.8ms | Allocations: 81210)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-17 14:58:56 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering items/items_list_main.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/items_list_main.html.erb:43
+  Rendered items/items_list_main.html.erb within layouts/application (Duration: 71.7ms | Allocations: 201642)
+  Rendered layout layouts/application.html.erb (Duration: 73.5ms | Allocations: 203409)
+Completed 200 OK in 80ms (Views: 74.6ms | ActiveRecord: 0.5ms | Allocations: 208249)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-17 14:59:41 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering items/items_list_main.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/items_list_main.html.erb:43
+  Rendered items/items_list_main.html.erb within layouts/application (Duration: 15.2ms | Allocations: 14092)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 14171)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.9ms | Allocations: 28947)
+
+
+  
+ActionView::Template::Error (undefined method `posts_path' for #<ActionView::Base:0x00000000015248>):
+    85: 
+    86: <%= link_to "Aggiungi Materiale", new_item_path %>
+    87: 
+    88: <%= link_to "Export", posts_path(format: 'csv') %>
+  
+app/views/items/items_list_main.html.erb:88
+app/controllers/items_controller.rb:10:in `index'
+Started GET "/" for 127.0.0.1 at 2024-04-17 14:59:53 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering items/items_list_main.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/items_list_main.html.erb:43
+  Rendered items/items_list_main.html.erb within layouts/application (Duration: 9.6ms | Allocations: 10186)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 12435)
+Completed 200 OK in 33ms (Views: 17.8ms | ActiveRecord: 1.9ms | Allocations: 27251)
+
+
+Started GET "/items.csv" for 127.0.0.1 at 2024-04-17 14:59:55 +0200
+Processing by ItemsController#index as CSV
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 4954)
+
+
+  
+ActionView::MissingTemplate (Missing template items/items_list_main with {:locale=>[:en], :formats=>[:csv], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+):
+  
+app/controllers/items_controller.rb:10:in `index'
+Started GET "/" for 127.0.0.1 at 2024-04-17 15:48:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 4568)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-04-17 15:48:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 625)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 4058)
+  Rendered layout layouts/application.html.erb (Duration: 103.0ms | Allocations: 24236)
+Completed 200 OK in 130ms (Views: 113.8ms | ActiveRecord: 2.1ms | Allocations: 38513)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-04-17 15:48:06 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"s", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["username", "s"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:11:in `assign_role'
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11:in `assign_role'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-04-17 13:48:07.069555"], ["sign_in_count", 37], ["current_sign_in_at", "2024-04-17 13:48:07.029270"], ["last_sign_in_at", "2024-04-17 12:58:56.342391"], ["id", 6]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 256ms (ActiveRecord: 4.9ms | Allocations: 81190)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-17 15:48:07 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering items/items_list_main.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/items_list_main.html.erb:43
+  Rendered items/items_list_main.html.erb within layouts/application (Duration: 67.3ms | Allocations: 201716)
+  Rendered layout layouts/application.html.erb (Duration: 70.3ms | Allocations: 203483)
+Completed 200 OK in 78ms (Views: 70.9ms | ActiveRecord: 0.9ms | Allocations: 208184)
+
+
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:48:14 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 5334)
+
+
+  
+ActionView::MissingTemplate (Missing partial items/_items_list_main, application/_items_list_main with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+
+Did you mean?  items/item
+               items/item_tagged
+               items/form
+               action_text/attachment_galleries/attachment_gallery
+               action_text/contents/content
+               layouts/action_text/contents/content):
+  
+app/controllers/items_controller.rb:32:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:49:44 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.5ms | Allocations: 17223)
+
+
+  
+NameError (undefined local variable or method `item' for #<ItemsController:0x00000000015518>
+Did you mean?  items
+               @items):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:49:55 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 6046)
+
+
+  
+NameError (undefined local variable or method `item' for #<ItemsController:0x000000000158b0>
+Did you mean?  items
+               @items):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:49:59 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.5ms | Allocations: 16788)
+
+
+  
+ActionView::MissingTemplate (Missing partial items/_items_list_main, application/_items_list_main with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+
+Did you mean?  items/item
+               items/item_tagged
+               items/form
+               action_text/attachment_galleries/attachment_gallery
+               action_text/contents/content
+               layouts/action_text/contents/content):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:51:07 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.7ms | Allocations: 16619)
+
+
+  
+ActionView::MissingTemplate (Missing partial items/_items_list_main with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+
+Did you mean?  items/item
+               items/item_tagged
+               items/form
+               action_text/attachment_galleries/attachment_gallery
+               roles/form
+               users/form):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:51:33 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms | Allocations: 16797)
+
+
+  
+ActionView::MissingTemplate (Missing partial items/_items_items_list_main, application/_items_items_list_main with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+
+Did you mean?  items/item
+               items/item_tagged
+               items/form
+               action_text/attachables/remote_image
+               action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:51:58 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.6ms | Allocations: 16726)
+
+
+  
+ActionView::MissingTemplate (Missing partial items/_items_list_main, application/_items_list_main with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/disegno/mecplusdwh/app/views"
+  * "/var/lib/gems/3.0.0/gems/devise-4.9.3/app/views"
+  * "/var/lib/gems/3.0.0/gems/turbo-rails-2.0.5/app/views"
+  * "/var/lib/gems/3.0.0/gems/actiontext-7.1.3.2/app/views"
+  * "/var/lib/gems/3.0.0/gems/actionmailbox-7.1.3.2/app/views"
+
+Did you mean?  items/item
+               items/item_tagged
+               items/form
+               action_text/attachment_galleries/attachment_gallery
+               action_text/contents/content
+               layouts/action_text/contents/content):
+  
+app/controllers/items_controller.rb:37:in `list'
+Started GET "/items/list?name=sad&button=" for 127.0.0.1 at 2024-04-17 15:53:40 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"sad", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/_items_list_main.html.erb:1
+  Rendered items/_items_list_main.html.erb (Duration: 9.0ms | Allocations: 8914)
+Completed 200 OK in 26ms (Views: 10.0ms | ActiveRecord: 1.8ms | Allocations: 23465)
+
+
+Started GET "/items/list?name=a&button=" for 127.0.0.1 at 2024-04-17 15:53:49 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"a", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  [1m[36mItem Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/_items_list_main.html.erb:1
+  Rendered items/_items_list_main.html.erb (Duration: 1.2ms | Allocations: 792)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 3551)
+
+
+Started GET "/items/list?name=zzzzz&button=" for 127.0.0.1 at 2024-04-17 15:53:59 +0200
+Processing by ItemsController#list as HTML
+  Parameters: {"name"=>"zzzzz", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16:in `admin?'
+  [1m[36mItem Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/_items_list_main.html.erb:1
+  Rendered items/_items_list_main.html.erb (Duration: 1.3ms | Allocations: 791)
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 3329)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-04-17 15:54:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 2016)
+
+

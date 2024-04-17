@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     render 'items/items_list_main'
+    @posts = Post.all
+    respond_to do |format|
+        format.html
+        format.csv { send_data Post.to_csv, filename: "posts-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
+    end
   end
 
   # GET /items/1 or /items/1.json
