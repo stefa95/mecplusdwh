@@ -7,11 +7,11 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    render 'items/items_list_main'
-    @posts = Post.all
+    render 'index'
+    @items = Item.all
     respond_to do |format|
         format.html
-        format.csv { send_data Post.to_csv, filename: "posts-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
+        format.csv { send_data Item.to_csv, filename: "items-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
     end
   end
 
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
     items = Item.includes(:descrizione)
     items = items.where('descrizione ilike ?', "%#{params[:descrizione]}%") if params[:descrizione].present?
     items = items.order("#{params[:column]} #{params[:direction]}")
-    render(partial: 'items_list_main', locals: { items: items })
+    render(partial: 'items', locals: { items: items })
   end
 
   # POST /items or /items.json
@@ -77,7 +77,7 @@ class ItemsController < ApplicationController
 
 
   def tagged
-    # Effettua il filtraggio dei dati in base ai parametri ricevuti dalla richiesta AJAX
+    # Effettua il filtro dei dati in base ai parametri ricevuti dalla richiesta AJAX
 
     # RECAP STATO ELEMENTI
     # 0 = Ritirato / Scaduto

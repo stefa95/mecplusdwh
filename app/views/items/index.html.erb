@@ -3,7 +3,7 @@
 <h1>Items</h1>
 
 <div id="items">
-<%= render items_path.items_list_main %>
+<%= render @items %>
 
 
 <%= link_to 'Filtra', tagged_items_path, remote: true, id: 'tagged-items' %>
@@ -27,5 +27,5 @@
 
 <%= link_to "Nuovo Materiale", new_item_path %>
 
-<%= link_to "Export", posts_path(format: 'csv') %>
+<%= link_to "Export", items_path(format: 'csv') %>
 

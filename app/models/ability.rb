@@ -17,7 +17,7 @@ class Ability
         end
         
       end
-     
+      
 
 
 
@@ -50,11 +50,6 @@ class Ability
 #      end
      
   #  end
-
-
-
-
-
 
     # Define abilities for the user here. For example:
     #

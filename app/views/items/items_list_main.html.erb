@@ -1,19 +1,4 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Materiale</h1>
-
-<div id="items">
-
-
-<%= turbo_frame_tag "items_turbo", class: "shadow overflow-hidden rounded border-b border-gray-200" do %>
-  <div class="flex justify-end mb-1">
-    <%= form_with url: list_items_path, method: :get do |form| %>
-      <%= form.text_field :name, placeholder: "Search by name", value: params[:name], class: "border border-blue-500 rounded p-2" %>
-      <%= form.button "Search", class: "bg-blue-500 text-white p-2 rounded-sm" %>
-    <% end %>
-  </div>
-
-  
 
 
 <table border = "2">
@@ -61,28 +46,5 @@
   </tr>
   <% end %>
  </table>
- <% end %>
 
 
- <%= link_to 'Filtra', tagged_items_path, remote: true, id: 'tagged-items' %>
-<div id="elementi-filtrati"></div>
-
-<script>
-  $(document).on('turbolinks:load', function() {
-    $('#tagged-items').click(function(e) {
-      e.preventDefault();
-      $.ajax({
-        url: $(this).attr('href'),
-        type: 'GET',
-        dataType: 'html',
-        success: function(data) {
-          $('#elementi-filtrati').html(data);
-        }
-      });
-    });
-  });
-</script>
-
-<%= link_to "Aggiungi Materiale", new_item_path %>
-
-<%= link_to "Export", items_path(format: 'csv') %>
